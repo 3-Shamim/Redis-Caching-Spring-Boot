@@ -38,10 +38,12 @@ public class StudentService {
     }
 
 
+    @CacheEvict(value = "STUDENT_SERVICE", allEntries=true)
     public List<Student> createMultipleStudent(List<Student> students) {
         return studentRepository.saveAll(students);
     }
 
+    @CacheEvict(value = "STUDENT_SERVICE", allEntries=true)
     public Student createStudent(Student student) {
         return studentRepository.save(student);
     }
